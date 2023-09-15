@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bimanual Results</title>
+	<style type="text/css">
+		table, th, tr, td {
+			border: 1px dotted black;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<h1>Results From <em>Constrained Bimanual Planning with Analytic Inverse Kinematics</em></h1>
+	<h3><a href="https://tommycohn.com/">Thomas Cohn</a>, <a href="https://seijis.csail.mit.edu/">Seiji Shaw</a>, <a href="https://msimchowitz.github.io/">Max Simchowitz</a>, and <a href="https://groups.csail.mit.edu/locomotion/russt.html">Russ Tedrake</a></h3>
+	<p><a href="#">Click this link to see the preprint on arXiv!</a></p>
+	<p><a href="https://github.com/cohnt/Bimanual-Web">Click this link to view the git repository that generates this webpage (for easy downloading of files)</a></p>
+	<p>Accompanying video</p>
+	<video width="640" height="360" controls>
+		<source src="results_video_720p.mp4" type="video/mp4">
+	</video>
+	<p>You can also vide the video <a href="#">on Youtube</a>.</p>
+	<h2>Bimanual Plans</h2>
+	<p>Below are interactive meshcat recordings of all plans from the paper Constrained Bimanual Planning with Analytic Inverse Kinematics, submitted to ICRA. This replicates Table I of the paper, with each cell indicating the path length, and linking to its corresponding meshcat recording. Paths marked with an asterisk have collisions.</p>
+	<table>
+		<tr>
+			<td>Method</td>
+			<td>Top to Middle</td>
+			<td>Middle to Bottom</td>
+			<td>Bottom to Top</td>
+		</tr>
+		<tr>
+			<td>Trajopt</td>
+			<td><a href="meshcat/trajopt_top_middle.html">4.24*</a></td>
+			<td><a href="meshcat/trajopt_middle_bottom.html">2.66*</a></td>
+			<td><a href="meshcat/trajopt_bottom_top.html">6.10*</a></td>
+		</tr>
+		<tr>
+			<td>Atlas-BiRRT</td>
+			<td><a href="meshcat/atlas_rrt_top_middle.html">5.57</a></td>
+			<td><a href="meshcat/atlas_rrt_middle_bottom.html">5.60</a></td>
+			<td><a href="meshcat/atlas_rrt_bottom_top.html">6.76</a></td>
+		</tr>
+		<tr>
+			<td>Atlas-PRM</td>
+			<td><a href="meshcat/atlas_prm_top_middle.html">7.24</a></td>
+			<td><a href="meshcat/atlas_prm_middle_bottom.html">7.09</a></td>
+			<td><a href="meshcat/atlas_prm_bottom_top.html">8.56</a></td>
+		</tr>
+		<tr>
+			<td>IK-Trajopt</td>
+			<td><a href="meshcat/trajopt_ik_top_middle.html">2.64</a></td>
+			<td><a href="meshcat/trajopt_ik_middle_bottom.html"><strong>3.00</strong></a></td>
+			<td><a href="meshcat/trajopt_ik_bottom_top.html"><strong>4.75</strong></a></td>
+		</tr>
+		<tr>
+			<td>IK-BiRRT</td>
+			<td><a href="meshcat/rrt_shortcut_top_middle.html">9.19</a></td>
+			<td><a href="meshcat/rrt_shortcut_middle_bottom.html">10.63</a></td>
+			<td><a href="meshcat/rrt_shortcut_bottom_top.html">18.36</a></td>
+		</tr>
+		<tr>
+			<td>IK-PRM</td>
+			<td><a href="meshcat/prm_shortcut_top_middle.html">4.13</a></td>
+			<td><a href="meshcat/prm_shortcut_middle_bottom.html">13.75</a></td>
+			<td><a href="meshcat/prm_shortcut_bottom_top.html">13.65</a></td>
+		</tr>
+		<tr>
+			<td>IK-GCS</td>
+			<td><a href="meshcat/gcs_top_middle.html"><strong>2.09</strong></a></td>
+			<td><a href="meshcat/gcs_middle_bottom.html">3.32</a></td>
+			<td><a href="meshcat/gcs_bottom_top.html">5.62</a></td>
+		</tr>
+	</table>
+	<h2>How to Interact with Meshcat Trajectory Recordings</h2>
+	<p>Click and drag the screen to rotate the camera. Holding shift will instead pan the camera. Scroll to zoom in or out.</p>
+	<p>To adjust playback of the trajectory, click the "Open Controls" button in the top right corner. You will see an image similar to below:</p>
+	<img src="./meshcat_controls.png">
+	<p>The controls for playback are under the "Animations" menu. "play" and "pause" start and stop the playback from the current timestamp, and "reset" sets the time to 0. "time" indicates the current time of the pose within the trajectory, and "timeScale" controls the playback speed (e.g. 0.5 is half speed). The values for "time" and "timeScale" are text fields, and can be edited directly.</p>
+</body>
+</html>
